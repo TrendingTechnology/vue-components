@@ -1,10 +1,12 @@
 {
-  "name": "vue",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@flockos/vue-components",
+  "version": "0.1.18",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name flock ./src/components/index.js",
+    "build-wc": "vue-cli-service build --target wc --name flock 'src/components/*.vue'",
+    "build-wc-async": "vue-cli-service build --target wc-async --name flock 'src/components/*.vue'",
     "test": "vue-cli-service test",
     "e2e": "vue-cli-service e2e",
     "lint": "vue-cli-service lint",
@@ -13,6 +15,14 @@
   "dependencies": {
     "vue": "^2.5.13"
   },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "main": "./dist/flock.common.js",
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.5",
     "@vue/cli-plugin-e2e-cypress": "^3.0.0-beta.5",
@@ -44,5 +54,15 @@
       "vue-cli-service lint",
       "git add"
     ]
-  }
+  },
+  "description": "## How to use: 1. Just use `npm install --save @flockos/vue-components` 2. Use the components in your file directly.",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "Divyam Rastogi",
+  "license": "ISC",
+  "keywords": [
+    "vue",
+    "components"
+  ]
 }

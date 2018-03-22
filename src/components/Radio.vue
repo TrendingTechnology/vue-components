@@ -1,0 +1,98 @@
+<template>
+  <div class="radio">
+    <label :for="name + uuid" :style="labelStyles">
+      <input
+        :id="name + uuid"
+        :name="name"
+        :disabled="disabled"
+        :value="optionValue"
+        :checked="isChecked"
+        type="radio"
+        @change="update($event)">
+      <span>{{ label }}</span>
+    </label>
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      uuid: parseInt(Math.random() * 10000, 10),
+    };
+  },
+  props: {
+    name: String,
+    optionValue: {
+      type: [String, Number, Boolean],
+      default: false,
+    },
+    value: [String, Number, Boolean],
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    label: String,
+    labelStyles: {
+      type: Object,
+      default() {},
+    },
+  },
+  methods: {
+    update() {
+      this.$emit('input', this.optionValue);
+    },
+  },
+  computed: {
+    isChecked() {
+      return this.optionValue === this.value;
+    },
+  },
+};
+</script>
+<style lang="scss" scoped>
+@mixin maxWidth($maxWidth: 100%) {
+  max-width: $maxWidth;
+  box-sizing: border-box;
+}
+$radioDiameter: 1rem;
+label {
+  display: block;
+  padding: 14px 15px 15px 2em;
+  position: relative;
+  font-weight: normal;
+  color: $text-color;
+  z-index: 1;
+  line-height: 14px;
+  margin-right: 10%;
+  text-align: left;
+  @include ellipsis();
+  input {
+    position: absolute;
+    left: -99999px;
+    &:disabled ~ span {
+      color: $light-text-color;
+    }
+    &:checked {
+      & ~ span:before {
+        background-image: url(../assets/active-radiobutton.svg);
+      }
+      &:disabled ~ span:before {
+        background-image: url(../assets/active-disabled-radiobutton.svg);
+      }
+    }
+  }
+  & > span {
+    font-size: 0.875rem;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      border-radius: 50%;
+      box-sizing: border-box;
+      width: $radioDiameter;
+      height: $radioDiameter;
+      @include bg-cover(url(../assets/default-radiobutton.svg));
+    }
+  }
+}
+</style>
