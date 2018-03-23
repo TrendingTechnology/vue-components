@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     closeOnFocusChange(focusEl) {
-      if (this.$el !== focusEl && this.dropdownOpen) {
+      if (focusEl.closest('.dropdown') !== this.$el && this.dropdownOpen) {
         this.toggleOpen();
       }
     },
