@@ -146,6 +146,25 @@
       {{ disabledCheckbox }}
 
     </div>
+    <flock-checkbox
+      v-model="arrayCheckbox"
+      label="Hello"
+      trueValue="hello"
+    >
+    </flock-checkbox>
+    <flock-checkbox
+      v-model="arrayCheckbox"
+      label="Goodbye"
+      trueValue="goodbye"
+    >
+    </flock-checkbox>
+    <flock-checkbox
+      v-model="arrayCheckbox"
+      label="Toodles"
+      trueValue="toodles"
+    >
+    </flock-checkbox>
+    Chosen greetings: {{ arrayCheckbox }}
     <hr>
   </div>
 </template>
@@ -162,6 +181,7 @@ export default {
     disabledCheckbox: false,
     disabledSelectedCheckbox: true,
     dropdownOpen: false,
+    arrayCheckbox: [],
     buttonTypes: [
       {
         type: 'primary',

@@ -101,7 +101,7 @@ export default {
   min-width: 100%;
   margin-bottom: 20px;
   z-index: 1;
-  margin-top: 4px;
+  margin-top: 8px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   border: solid 1px #eeeeee;

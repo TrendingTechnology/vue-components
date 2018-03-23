@@ -3,33 +3,22 @@
     <div class="flock-checkbox">
       <input
         :disabled="disabled"
-        :id="id"
-        :name="name"
+        :id="defaultId"
         v-model="proxy"
         :value="trueValue"
         type="checkbox"
         @change="update"
       />
-      <label :style="labelStyles" :class="{ 'styled': !!labelStyles }" :for="id">
+      <label :style="labelStyles" :class="{ 'styled': !!labelStyles }" :for="defaultId">
         {{ label }}
       </label>
     </div>
   </div>
 </template>
 <script>
-/* How to use:
-  Template:
-  <flock-input
-    validations="required|email"
-    v-model="email"
-    suffix="@flockgroups.com"
-    label="Email"
-    type="text|textarea"
-    id="email">
-  </flock-input>
-  Please refer to Vee Validate documentation for other validations here:
-  http://vee-validate.logaretm.com/
- */
+import helpers from '@/helpers';
+
+const { getRandomId } = helpers;
 
 export default {
   model: {
@@ -57,7 +46,6 @@ export default {
     label: {
       type: String,
     },
-    name: String,
     value: {
       type: [Array, Object, Boolean, String],
       default: false,
@@ -70,6 +58,7 @@ export default {
   data() {
     return {
       proxy: this.value,
+      defaultId: '',
     };
   },
   watch: {
@@ -81,6 +70,9 @@ export default {
     update() {
       this.$emit('change', this.proxy);
     },
+  },
+  created() {
+    this.defaultId = this.id || getRandomId('Checkbox');
   },
 };
 </script>
