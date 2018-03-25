@@ -54,7 +54,7 @@ export default {
   max-width: $maxWidth;
   box-sizing: border-box;
 }
-$radioDiameter: 1rem;
+$radioDiameter: 16px;
 label {
   display: block;
   padding: 14px 15px 15px 2em;
@@ -63,7 +63,6 @@ label {
   color: $text-color;
   z-index: 1;
   line-height: 14px;
-  margin-right: 10%;
   text-align: left;
   @include ellipsis();
   input {
@@ -73,11 +72,23 @@ label {
       color: $light-text-color;
     }
     &:checked {
-      & ~ span:before {
-        background-image: url(../assets/active-radiobutton.svg);
+      & ~ span:after {
+        position: absolute;
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background: $primary;
+        content: '';
+        left: 3px;
+        top: 17px;
       }
-      &:disabled ~ span:before {
-        background-image: url(../assets/active-disabled-radiobutton.svg);
+      &:disabled {
+        & ~ span:after {
+          background: $input-border-color;
+        }
+        & ~ span:before {
+          border-color: $input-border-color;
+        }
       }
     }
   }
@@ -91,7 +102,7 @@ label {
       box-sizing: border-box;
       width: $radioDiameter;
       height: $radioDiameter;
-      @include bg-cover(url(../assets/default-radiobutton.svg));
+      border: solid 1px $border-color;
     }
   }
 }

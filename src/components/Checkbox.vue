@@ -15,7 +15,7 @@
         :for="defaultId"
       >
         {{ label }}
-        <span :style="{ backgroundImage: `url(${assets[state]})` }">
+        <span>
         </span>
       </label>
     </div>
@@ -24,17 +24,6 @@
 <script>
 import helpers from '@/helpers';
 
-const disabledActiveCheckbox = require('../assets/checkbox-disabled-active.svg');
-const disabledCheckbox = require('../assets/checkbox-disabled.svg');
-const activeCheckbox = require('../assets/checkbox-active.svg');
-const defaultCheckbox = require('../assets/checkbox-default.svg');
-
-const assets = {
-  'checkbox-disabled-active': disabledActiveCheckbox,
-  'checkbox-disabled': disabledCheckbox,
-  'checkbox-active': activeCheckbox,
-  'checkbox-default': defaultCheckbox,
-};
 const { getRandomId } = helpers;
 
 export default {
@@ -46,7 +35,6 @@ export default {
     return {
       proxy: this.value,
       defaultId: '',
-      assets,
     };
   },
   props: {
@@ -129,7 +117,6 @@ export default {
       z-index: 2;
       padding: 13px 15px 13px 2rem;
       display: block;
-      margin-right: 4em;
       @include ellipsis();
       & > span {
         content: "";
@@ -142,28 +129,37 @@ export default {
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        @include bg-cover(url(../assets/checkbox-default.svg));
+        border: solid 1px $border-color;
         border-radius: 3px;
       }
     }
     &:disabled {
       & + label > span {
-        @include bg-cover(url(../assets/checkbox-disabled.svg));
+        background: #F2F2F2;
+        border-color: $input-border-color;
       }
       &:checked + label > span {
-        @include bg-cover(url(../assets/checkbox-disabled-active.svg));
+        background: $input-border-color;
       }
     }
   }
   input[type="checkbox"]:checked + label {
     & > span {
       border: none;
-      @include bg-cover(url(../assets/checkbox-active.svg));
-    }
-  }
-  input[type="checkbox"] {
-    & > span {
-      @include bg-cover(url(../assets/checkbox-notall.svg));
+      background: $primary;
+      &:after {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 3px;
+        width: 9px;
+        height: 4px;
+        border: 1px solid #ffffff;
+        border-top: none;
+        border-right: none;
+        transform: rotate(-45deg);
+        background: transparent;
+      }
     }
   }
 }
