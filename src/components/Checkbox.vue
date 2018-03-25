@@ -15,7 +15,7 @@
         :for="defaultId"
       >
         {{ label }}
-        <span>
+        <span :style="{ backgroundImage: `url(${assets[state]})` }">
         </span>
       </label>
     </div>
@@ -23,14 +23,31 @@
 </template>
 <script>
 import helpers from '@/helpers';
-// import notAllCheckbox from '../assets/checkbox-notall.svg';
 
+const disabledActiveCheckbox = require('../assets/checkbox-disabled-active.svg');
+const disabledCheckbox = require('../assets/checkbox-disabled.svg');
+const activeCheckbox = require('../assets/checkbox-active.svg');
+const defaultCheckbox = require('../assets/checkbox-default.svg');
+
+const assets = {
+  'checkbox-disabled-active': disabledActiveCheckbox,
+  'checkbox-disabled': disabledCheckbox,
+  'checkbox-active': activeCheckbox,
+  'checkbox-default': defaultCheckbox,
+};
 const { getRandomId } = helpers;
 
 export default {
   model: {
     prop: 'value',
     event: 'change',
+  },
+  data() {
+    return {
+      proxy: this.value,
+      defaultId: '',
+      assets,
+    };
   },
   props: {
     id: String,
@@ -61,12 +78,6 @@ export default {
       type: Object,
       default() {},
     },
-  },
-  data() {
-    return {
-      proxy: this.value,
-      defaultId: '',
-    };
   },
   watch: {
     value() {

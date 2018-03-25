@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 3</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="05-Mailing-List-Settings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-54.000000, -481.000000)">
-        <g id="Group-2" transform="translate(54.000000, 481.000000)">
-            <g id="Group-3">
-                <rect id="Rectangle-193-Copy-8" fill="#0ABE51" x="0" y="0" width="16" height="16" rx="2"></rect>
-                <polyline id="Page-1" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" points="12.375 5 6.125 11.3636364 3 8.18181818"></polyline>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><rect fill="#0ABE51" width="16" height="16" rx="2"/><path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" d="M12.38 5l-6.26 6.36L3 8.18"/></g></svg>

@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 4</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="39-Permissions-Custom-Saved" stroke="none" stroke-width="2" fill="none" fill-rule="evenodd" transform="translate(-134.000000, -413.000000)">
-        <g id="Group-4" transform="translate(134.000000, 413.000000)">
-            <circle id="Oval-Copy-2" stroke="#dddddd" cx="8" cy="8" r="7.5"></circle>
-            <circle id="Oval-Copy-2" fill="#dddddd" cx="8" cy="8" r="5"></circle>
-        </g>
-    </g>
-</svg>
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><g stroke-width="2" fill="none" fill-rule="evenodd"><circle stroke="#ddd" cx="8" cy="8" r="7.5"/><circle fill="#ddd" cx="8" cy="8" r="5"/></g></svg>
