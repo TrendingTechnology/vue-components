@@ -80,92 +80,105 @@
       Radio Input Components:
     </h2>
     <div class="container">
-      Radio Input Value: <b>{{ radio }}</b>
-      <flock-radio
-        name="radio-demo"
-        label="Is this the value!"
-        v-model="radio"
-        optionValue="Yes"
-      >
-      </flock-radio>
-      <flock-radio
-        name="radio-demo"
-        label="Or is this the value!"
-        v-model="radio"
-        optionValue="No"
-      >
-      </flock-radio>
-      Disabled Radio Selected Value: <b>{{ disabledSelectedRadio }}</b>
-      <flock-radio
-        name="disabled-demo"
-        label="Disabled Selected"
-        v-model="disabledSelectedRadio"
-        optionValue="Disabled & Selected"
-        :disabled="true"
-      >
-      </flock-radio>
-      <flock-radio
-        name="disabled-demo"
-        label="Disabled unselected"
-        v-model="disabledSelectedRadio"
-        optionValue="Can be anything."
-        :disabled="true"
-      >
-      </flock-radio>
+      <div class="elem">
+        Radio Input Value: <b>{{ radio }}</b>
+        <flock-radio
+          name="radio-demo"
+          label="Is this the value!"
+          v-model="radio"
+          optionValue="Yes"
+        >
+        </flock-radio>
+        <flock-radio
+          name="radio-demo"
+          label="Or is this the value!"
+          v-model="radio"
+          optionValue="No"
+        >
+        </flock-radio>
+      </div>
+      <div class="elem">
+        Disabled Radio Selected Value: <b>{{ disabledSelectedRadio }}</b>
+        <flock-radio
+          name="disabled-demo"
+          label="Disabled Selected"
+          v-model="disabledSelectedRadio"
+          optionValue="Disabled & Selected"
+          :disabled="true"
+        >
+        </flock-radio>
+        <flock-radio
+          name="disabled-demo"
+          label="Disabled unselected"
+          v-model="disabledSelectedRadio"
+          optionValue="Can be anything."
+          :disabled="true"
+        >
+        </flock-radio>
+      </div>
     </div>
     <hr>
     <h2>Checkbox Component</h2>
     <div class="container">
-      <flock-checkbox
-        v-model="checkbox"
-        label="Selected Checkbox"
-        name="checkbox"
-        id="checkbox"
-      >
-      </flock-checkbox>
-      {{ checkbox }}
+      <div class="elem">
+        <flock-checkbox
+          v-model="checkbox"
+          label="Selected Checkbox"
+          name="checkbox"
+          id="checkbox"
+        >
+        </flock-checkbox>
+        {{ checkbox }}
+      </div>
 
-      <flock-checkbox
-        v-model="disabledSelectedCheckbox"
-        label="Disabled Selected Checkbox"
-        name="disabledSelectedCheckbox"
-        :disabled="true"
-        id="disabledSelectedCheckbox"
-      >
-      </flock-checkbox>
-      {{ disabledSelectedCheckbox }}
+      <div class="elem">
+        <flock-checkbox
+          v-model="disabledSelectedCheckbox"
+          label="Disabled Selected Checkbox"
+          name="disabledSelectedCheckbox"
+          :disabled="true"
+          id="disabledSelectedCheckbox"
+        >
+        </flock-checkbox>
+        {{ disabledSelectedCheckbox }}
+      </div>
 
-      <flock-checkbox
-        v-model="disabledCheckbox"
-        label="Disabled Checkbox"
-        name="disabledCheckbox"
-        :disabled="true"
-        id="disabledCheckbox"
-      >
-      </flock-checkbox>
-      {{ disabledCheckbox }}
+      <div class="elem">
+        <flock-checkbox
+          v-model="disabledCheckbox"
+          label="Disabled Checkbox"
+          name="disabledCheckbox"
+          :disabled="true"
+          id="disabledCheckbox"
+        >
+        </flock-checkbox>
+        {{ disabledCheckbox }}
+      </div>
 
+      <div class="elem">
+        <flock-checkbox
+          v-model="arrayCheckbox"
+          label="Hello"
+          trueValue="hello"
+        >
+        </flock-checkbox>
+        <flock-checkbox
+          v-model="arrayCheckbox"
+          label="Goodbye"
+          trueValue="goodbye"
+        >
+        </flock-checkbox>
+        <flock-checkbox
+          v-model="arrayCheckbox"
+          label="Toodles"
+          trueValue="toodles"
+        >
+        </flock-checkbox>
+        Chosen greetings: {{ arrayCheckbox }}
+      </div>
     </div>
-    <flock-checkbox
-      v-model="arrayCheckbox"
-      label="Hello"
-      trueValue="hello"
-    >
-    </flock-checkbox>
-    <flock-checkbox
-      v-model="arrayCheckbox"
-      label="Goodbye"
-      trueValue="goodbye"
-    >
-    </flock-checkbox>
-    <flock-checkbox
-      v-model="arrayCheckbox"
-      label="Toodles"
-      trueValue="toodles"
-    >
-    </flock-checkbox>
-    Chosen greetings: {{ arrayCheckbox }}
     <hr>
+    <h2>Icons</h2>
   </div>
 </template>
 
@@ -181,7 +194,7 @@ export default {
     disabledCheckbox: false,
     disabledSelectedCheckbox: true,
     dropdownOpen: false,
-    arrayCheckbox: [],
+    arrayCheckbox: ['toodles'],
     buttonTypes: [
       {
         type: 'primary',
@@ -260,8 +273,9 @@ a {
   }
 }
 .container {
-  width: 50%;
   margin: 0 auto;
   text-align: left;
+  display: flex;
+  flex-wrap: wrap;
 }
 </style>

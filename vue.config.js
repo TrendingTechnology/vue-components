@@ -11,4 +11,10 @@ module.exports = {
       },
     },
   },
+  /* chainWebpack: config =>
+    config.module
+      .rule('svg')
+      .test(/\.svg$/)
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader'), */
 };

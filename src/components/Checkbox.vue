@@ -9,14 +9,21 @@
         type="checkbox"
         @change="update"
       />
-      <label :style="labelStyles" :class="{ 'styled': !!labelStyles }" :for="defaultId">
+      <label
+        :style="labelStyles"
+        :class="{ 'styled': !!labelStyles }"
+        :for="defaultId"
+      >
         {{ label }}
+        <span>
+        </span>
       </label>
     </div>
   </div>
 </template>
 <script>
 import helpers from '@/helpers';
+// import notAllCheckbox from '../assets/checkbox-notall.svg';
 
 const { getRandomId } = helpers;
 
@@ -66,6 +73,26 @@ export default {
       this.proxy = this.value;
     },
   },
+  computed: {
+    state() {
+      let isChecked;
+      if (this.proxy instanceof Array) {
+        isChecked = this.proxy.indexOf(this.trueValue) > -1;
+      } else if (typeof (this.proxy) === 'boolean') {
+        isChecked = !!this.proxy;
+      }
+      if (this.disabled) {
+        if (isChecked) {
+          return 'checkbox-disabled-active';
+        }
+        return 'checkbox-disabled';
+      }
+      if (isChecked) {
+        return 'checkbox-active';
+      }
+      return 'checkbox-default';
+    },
+  },
   methods: {
     update() {
       this.$emit('change', this.proxy);
@@ -93,7 +120,7 @@ export default {
       display: block;
       margin-right: 4em;
       @include ellipsis();
-      &:before {
+      & > span {
         content: "";
         box-sizing: border-box;
         width: 1rem;
@@ -109,22 +136,22 @@ export default {
       }
     }
     &:disabled {
-      & + label:before {
+      & + label > span {
         @include bg-cover(url(../assets/checkbox-disabled.svg));
       }
-      &:checked + label:before {
+      &:checked + label > span {
         @include bg-cover(url(../assets/checkbox-disabled-active.svg));
       }
     }
   }
   input[type="checkbox"]:checked + label {
-    &:before {
+    & > span {
       border: none;
       @include bg-cover(url(../assets/checkbox-active.svg));
     }
   }
   input[type="checkbox"] {
-    &:before {
+    & > span {
       @include bg-cover(url(../assets/checkbox-notall.svg));
     }
   }
