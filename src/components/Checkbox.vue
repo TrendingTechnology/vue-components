@@ -14,7 +14,7 @@
         :class="{ 'styled': !!labelStyles }"
         :for="defaultId"
       >
-        <slot></slot>
+        <slot>{{ label }}</slot>
         <span>
         </span>
       </label>
@@ -34,7 +34,7 @@ export default {
   data() {
     return {
       proxy: this.value,
-      defaultId: '',
+      defaultId: this.id || getRandomId('Checkbox'),
     };
   },
   props: {
@@ -96,9 +96,6 @@ export default {
     update() {
       this.$emit('change', this.proxy);
     },
-  },
-  created() {
-    this.defaultId = this.id || getRandomId('Checkbox');
   },
 };
 </script>

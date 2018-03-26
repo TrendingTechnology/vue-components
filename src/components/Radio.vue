@@ -1,27 +1,31 @@
 <template>
   <div class="radio">
-    <label :for="name + uuid" :style="labelStyles">
+    <label :for="defaultId" :style="labelStyles">
       <input
-        :id="name + uuid"
+        :id="defaultId"
         :name="name"
         :disabled="disabled"
         :value="optionValue"
         :checked="isChecked"
         type="radio"
         @change="update($event)">
-      <span>{{ label }}</span>
+      <slot><span>{{ label }}</span></slot>
     </label>
   </div>
 </template>
 <script>
+import helpers from '@/helpers';
+
+const { getRandomId } = helpers;
 export default {
   data() {
     return {
-      uuid: parseInt(Math.random() * 10000, 10),
+      defaultId: this.id || getRandomId('Radio'),
     };
   },
   props: {
     name: String,
+    label: String,
     optionValue: {
       type: [String, Number, Boolean],
       default: false,
@@ -31,7 +35,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    label: String,
     labelStyles: {
       type: Object,
       default() {},

@@ -45,6 +45,7 @@
         </div>
       </div>
     </div>
+    <hr>
     <h2>
       Button Components:
     </h2>
@@ -83,14 +84,12 @@
       <div class="elem">
         Radio Input Value: <b>{{ radio }}</b>
         <flock-radio
-          name="radio-demo"
           label="Is this the value!"
           v-model="radio"
           optionValue="Yes"
         >
         </flock-radio>
         <flock-radio
-          name="radio-demo"
           label="Or is this the value!"
           v-model="radio"
           optionValue="No"
@@ -98,9 +97,23 @@
         </flock-radio>
       </div>
       <div class="elem">
-        Disabled Radio Selected Value: <b>{{ disabledSelectedRadio }}</b>
+        Switch Styled: <b>{{ radio }}</b>
         <flock-radio
-          name="disabled-demo"
+          label="Is this the value!"
+          v-model="radio"
+          optionValue="Yes"
+        >
+        </flock-radio>
+        <flock-radio
+          label="Or is this the value!"
+          v-model="radio"
+          optionValue="No"
+        >
+        </flock-radio>
+      </div>
+      <div class="elem">
+        Radio: <b>{{ disabledSelectedRadio }}</b>
+        <flock-radio
           label="Disabled Selected"
           v-model="disabledSelectedRadio"
           optionValue="Disabled & Selected"
@@ -108,7 +121,23 @@
         >
         </flock-radio>
         <flock-radio
-          name="disabled-demo"
+          label="Disabled unselected"
+          v-model="disabledSelectedRadio"
+          optionValue="Can be anything."
+          :disabled="true"
+        >
+        </flock-radio>
+      </div>
+      <div class="elem">
+        Switch Styled: <b>{{ disabledSelectedRadio }}</b>
+        <flock-radio
+          label="Disabled Selected"
+          v-model="disabledSelectedRadio"
+          optionValue="Disabled & Selected"
+          :disabled="true"
+        >
+        </flock-radio>
+        <flock-radio
           label="Disabled unselected"
           v-model="disabledSelectedRadio"
           optionValue="Can be anything."
@@ -124,7 +153,6 @@
         <flock-checkbox
           v-model="checkbox"
           label="Selected Checkbox"
-          name="checkbox"
           id="checkbox"
         >
         </flock-checkbox>
@@ -135,7 +163,6 @@
         <flock-checkbox
           v-model="disabledSelectedCheckbox"
           label="Disabled Selected Checkbox"
-          name="disabledSelectedCheckbox"
           :disabled="true"
           id="disabledSelectedCheckbox"
         >
@@ -147,7 +174,6 @@
         <flock-checkbox
           v-model="disabledCheckbox"
           label="Disabled Checkbox"
-          name="disabledCheckbox"
           :disabled="true"
           id="disabledCheckbox"
         >
