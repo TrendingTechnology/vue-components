@@ -97,39 +97,7 @@
         </flock-radio>
       </div>
       <div class="elem">
-        Switch Styled: <b>{{ radio }}</b>
-        <flock-radio
-          label="Is this the value!"
-          v-model="radio"
-          optionValue="Yes"
-        >
-        </flock-radio>
-        <flock-radio
-          label="Or is this the value!"
-          v-model="radio"
-          optionValue="No"
-        >
-        </flock-radio>
-      </div>
-      <div class="elem">
         Radio: <b>{{ disabledSelectedRadio }}</b>
-        <flock-radio
-          label="Disabled Selected"
-          v-model="disabledSelectedRadio"
-          optionValue="Disabled & Selected"
-          :disabled="true"
-        >
-        </flock-radio>
-        <flock-radio
-          label="Disabled unselected"
-          v-model="disabledSelectedRadio"
-          optionValue="Can be anything."
-          :disabled="true"
-        >
-        </flock-radio>
-      </div>
-      <div class="elem">
-        Switch Styled: <b>{{ disabledSelectedRadio }}</b>
         <flock-radio
           label="Disabled Selected"
           v-model="disabledSelectedRadio"
@@ -158,13 +126,32 @@
         </flock-checkbox>
         {{ checkbox }}
       </div>
-
+      <div class="elem">
+        <flock-checkbox
+          type="switch"
+          v-model="checkbox"
+          label="Switch Styled"
+          id="checkbox"
+        >
+        </flock-checkbox>
+        {{ checkbox }}
+      </div>
       <div class="elem">
         <flock-checkbox
           v-model="disabledSelectedCheckbox"
           label="Disabled Selected Checkbox"
           :disabled="true"
           id="disabledSelectedCheckbox"
+        >
+        </flock-checkbox>
+        {{ disabledSelectedCheckbox }}
+      </div>
+      <div class="elem">
+        <flock-checkbox
+          v-model="disabledSelectedCheckbox"
+          label="Switch Styled"
+          :disabled="true"
+          type="switch"
         >
         </flock-checkbox>
         {{ disabledSelectedCheckbox }}
@@ -176,6 +163,16 @@
           label="Disabled Checkbox"
           :disabled="true"
           id="disabledCheckbox"
+        >
+        </flock-checkbox>
+        {{ disabledCheckbox }}
+      </div>
+      <div class="elem">
+        <flock-checkbox
+          v-model="disabledCheckbox"
+          label="Disabled Checkbox"
+          :disabled="true"
+          type="switch"
         >
         </flock-checkbox>
         {{ disabledCheckbox }}

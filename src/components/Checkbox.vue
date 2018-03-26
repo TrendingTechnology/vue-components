@@ -11,7 +11,7 @@
       />
       <label
         :style="labelStyles"
-        :class="{ 'styled': !!labelStyles }"
+        :class="{ 'styled': !!labelStyles, 'switch': type === 'switch' }"
         :for="defaultId"
       >
         <slot>{{ label }}</slot>
@@ -39,6 +39,13 @@ export default {
   },
   props: {
     id: String,
+    type: {
+      type: String,
+      default: 'checkbox',
+      validator(value) {
+        return ['checkbox', 'switch'].indexOf(value) > -1;
+      },
+    },
     isForm: {
       type: Boolean,
       default: true,
@@ -100,6 +107,21 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$switchWidth: 48px;
+$switchHeight: 18px;
+$circleDiameter: 14px;
+$gap: 2px;
+$checkedCirclePos: $switchWidth - $circleDiameter - $gap;
+$offTextPos: $checkedCirclePos - 9px;
+.switch-circle {
+  background: white;
+  width: $circleDiameter;
+  height: $circleDiameter;
+  border-radius: 50%;
+  top: 2px;
+  border: none;
+  position: absolute;
+}
 .flock-checkbox {
   text-align: left;
   input[type="checkbox"] {
@@ -128,6 +150,31 @@ export default {
         transform: translateY(-50%);
         border: solid 1px $border-color;
         border-radius: 3px;
+        transition: 0.2s background cubic-bezier(0.22, 0.61, 0.36, 1);
+      }
+      &.switch {
+        padding-left: 3.5rem;
+        & > span {
+          width: $switchWidth;
+          height: $switchHeight;
+          border-radius: 12px;
+          background: $border-color;
+          border: none;
+          &:before {
+            position: absolute;
+            content: 'Off';
+            top: 1px;
+            left: $offTextPos;
+            color: white;
+            font-size: small;
+          }
+          &:after {
+            transition: 0.2s left cubic-bezier(0.22, 0.61, 0.36, 1);
+            content: '';
+            left: 2px;
+            @extend .switch-circle;
+          }
+        }
       }
     }
     &:disabled {
@@ -141,6 +188,18 @@ export default {
     }
   }
   input[type="checkbox"]:checked + label {
+    &.switch {
+      & > span {
+        &:after {
+          left: $checkedCirclePos;
+          @extend .switch-circle;
+        }
+        &:before {
+          content: 'On';
+          left: 4px;
+        }
+      }
+    }
     & > span {
       border: none;
       background: $primary;
