@@ -14,7 +14,7 @@
         :class="{ 'styled': !!labelStyles }"
         :for="defaultId"
       >
-        {{ label }}
+        <slot></slot>
         <span>
         </span>
       </label>
