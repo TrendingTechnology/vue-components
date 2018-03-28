@@ -112,7 +112,7 @@ $switchHeight: 18px;
 $circleDiameter: 14px;
 $gap: 2px;
 $checkedCirclePos: $switchWidth - $circleDiameter - $gap;
-$offTextPos: $checkedCirclePos - 9px;
+$offTextPos: $checkedCirclePos - 10px;
 .switch-circle {
   background: white;
   width: $circleDiameter;
@@ -167,11 +167,12 @@ $offTextPos: $checkedCirclePos - 9px;
             left: $offTextPos;
             color: white;
             font-size: small;
+            font-weight: 600;
           }
           &:after {
             transition: 0.2s left cubic-bezier(0.22, 0.61, 0.36, 1);
             content: '';
-            left: 2px;
+            left: 3px;
             @extend .switch-circle;
           }
         }
