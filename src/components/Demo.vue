@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
     <hr>
     <div>
       <h2>Dropdown component</h2>
@@ -72,7 +71,11 @@
       </div>
     </div>
     <div class="full-width">
-      <flock-button size="full">
+      <flock-button
+        size="full"
+        :loading="loading"
+        @click="showLoader"
+      >
         Full Button
       </flock-button>
     </div>
@@ -212,6 +215,7 @@ export default {
   name: 'HelloWorld',
   data: () => ({
     radio: 'No',
+    loading: false,
     disabledSelectedRadio: 'Disabled & Selected',
     checkbox: true,
     disabledCheckbox: false,
@@ -248,8 +252,13 @@ export default {
       },
     ],
   }),
-  props: {
-    msg: String,
+  methods: {
+    showLoader() {
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+      }, 5000);
+    },
   },
 };
 </script>

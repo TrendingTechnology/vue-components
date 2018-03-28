@@ -5,6 +5,13 @@
     :class="`${type} ${invert ? 'invert' : ''} ${size}`"
     @click="$emit('click', $event)">
     <slot>Submit</slot>
+    <img
+      v-if="loading"
+      class="loader"
+      src="http://static.flock.co/flock/apps/loader-green.svg"
+      height="32px"
+      width="32px"
+    />
   </button>
 </template>
 <script>
@@ -16,6 +23,10 @@ export default {
       validator(prop) {
         return ['auto', 'full', 'half'].indexOf(prop) > -1;
       },
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     },
     type: {
       default: 'primary',
@@ -51,6 +62,13 @@ export default {
   transition: all 0.1s ease-in-out;
   background: $primary;
   outline: none;
+  position: relative;
+  .loader {
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+  }
   &.full {
     width: 100%;
   }
