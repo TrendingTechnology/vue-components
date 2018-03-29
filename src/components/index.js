@@ -15,6 +15,7 @@ function triggerGlobalClick(e) {
   e.stopPropagation();
   eventBus.$emit('focusChanged', this);
 }
+document.addEventListener('click', triggerGlobalClick);
 
 Vue.mixin({
   mounted() {
