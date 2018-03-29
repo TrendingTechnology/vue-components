@@ -94,7 +94,7 @@ export default {
   display: inline-block;
 }
 .show-beak > .header > span {
-  display: inline;
+  display: inline-block;
 }
 .content {
   @include border-radius();
@@ -156,21 +156,17 @@ export default {
   span {
     display: none;
     cursor: pointer;
-    top: 40%;
-    right: -20px;
     transition: top 200ms ease-in-out, transform 200ms ease-in-out;
     border: solid transparent;
     content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
     border-color: rgba(105, 113, 120, 0);
     border-top-color: #697178;
     border-width: 6px;
-    margin-left: -2px;
+    position: relative;
+    right: -10px;
+    top: 4px;
     .open & {
-      top: 7%;
+      top: -2px;
       transform: rotateX(180deg);
     }
   }
