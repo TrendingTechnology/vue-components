@@ -204,6 +204,7 @@
       </div>
     </div>
     <hr>
+    <flock-banner>This is a banner!</flock-banner>
     <h2>Icons</h2>
   </div>
 </template>
