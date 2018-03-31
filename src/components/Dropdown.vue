@@ -14,7 +14,7 @@
       <div
         class="content"
         v-if="dropdownOpen"
-        :style="{ width }"
+        :style="styles"
         :class="align"
       >
         <slot></slot>
@@ -43,6 +43,12 @@ export default {
     width: {
       type: String,
       default: '100%',
+    },
+    styles: {
+      type: Object,
+      default: () => ({
+        width: this.width,
+      }),
     },
     open: {
       type: Boolean,
