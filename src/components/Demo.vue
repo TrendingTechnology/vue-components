@@ -232,7 +232,9 @@
         This is a toast!
       </flock-toast>
     </div>
-    <h2>Icons</h2>
+    <h2>Links</h2>
+    This link will show the toast:
+    <flock-link @click="showToast = true">Show toast</flock-link>
   </div>
 </template>
 
