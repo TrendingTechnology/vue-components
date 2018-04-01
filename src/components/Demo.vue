@@ -204,7 +204,34 @@
       </div>
     </div>
     <hr>
-    <flock-banner>This is a banner!</flock-banner>
+    <h2>Banners & Toasts</h2>
+    <div class="content">
+      Toggle Banner position:
+      {{ position }}
+      <flock-button
+        @click="togglePosition"
+      >
+        Toggle
+      </flock-button>
+      <flock-banner
+        :position="position"
+      >
+        This is a banner!
+      </flock-banner>
+    </div>
+    <div class="content">
+      Show Toast:
+      <flock-button @click="showToast = !showToast">
+        Show Toast
+      </flock-button>
+      <flock-toast
+        @toasthidden="showToast = false"
+        v-if="showToast"
+        position="bottom"
+      >
+        This is a toast!
+      </flock-toast>
+    </div>
     <h2>Icons</h2>
   </div>
 </template>
@@ -216,9 +243,11 @@ export default {
   name: 'HelloWorld',
   data: () => ({
     radio: 'No',
+    position: 'top',
     loading: false,
     disabledSelectedRadio: 'Disabled & Selected',
     checkbox: true,
+    showToast: false,
     disabledCheckbox: false,
     disabledSelectedCheckbox: true,
     dropdownOpen: false,
@@ -254,6 +283,13 @@ export default {
     ],
   }),
   methods: {
+    togglePosition() {
+      if (this.position === 'top') {
+        this.position = 'bottom';
+      } else {
+        this.position = 'top';
+      }
+    },
     showLoader() {
       this.loading = true;
       setTimeout(() => {
