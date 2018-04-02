@@ -40,15 +40,9 @@ export default {
       type: Boolean,
       default: true,
     },
-    width: {
-      type: String,
-      default: '100%',
-    },
     styles: {
       type: Object,
-      default: () => ({
-        width: this.width,
-      }),
+      default: () => ({}),
     },
     open: {
       type: Boolean,
@@ -110,7 +104,6 @@ export default {
 }
 .content {
   @include border-radius();
-  min-width: 100%;
   margin-bottom: 20px;
   z-index: 1;
   margin-top: 12px;

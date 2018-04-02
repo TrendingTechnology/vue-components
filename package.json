@@ -1,6 +1,6 @@
 {
   "name": "@flockos/vue-components",
-  "version": "0.1.31",
+  "version": "0.1.33",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",

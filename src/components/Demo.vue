@@ -123,9 +123,9 @@
       <div class="elem">
         <flock-checkbox
           v-model="checkbox"
-          label="Selected Checkbox"
           id="checkbox"
         >
+          Selected Checkbox
         </flock-checkbox>
         {{ checkbox }}
       </div>
@@ -133,29 +133,29 @@
         <flock-checkbox
           type="switch"
           v-model="checkbox"
-          label="Switch Styled"
           id="checkbox"
         >
+          Switch Styled
         </flock-checkbox>
         {{ checkbox }}
       </div>
       <div class="elem">
         <flock-checkbox
           v-model="disabledSelectedCheckbox"
-          label="Disabled Selected Checkbox"
           :disabled="true"
           id="disabledSelectedCheckbox"
         >
+          Disabled Selected Checkbox
         </flock-checkbox>
         {{ disabledSelectedCheckbox }}
       </div>
       <div class="elem">
         <flock-checkbox
           v-model="disabledSelectedCheckbox"
-          label="Switch Styled"
           :disabled="true"
           type="switch"
         >
+          Switch Styled
         </flock-checkbox>
         {{ disabledSelectedCheckbox }}
       </div>
@@ -163,20 +163,20 @@
       <div class="elem">
         <flock-checkbox
           v-model="disabledCheckbox"
-          label="Disabled Checkbox"
           :disabled="true"
           id="disabledCheckbox"
         >
+          Disabled Checkbox
         </flock-checkbox>
         {{ disabledCheckbox }}
       </div>
       <div class="elem">
         <flock-checkbox
           v-model="disabledCheckbox"
-          label="Disabled Checkbox"
           :disabled="true"
           type="switch"
         >
+          Disabled Checkbox
         </flock-checkbox>
         {{ disabledCheckbox }}
       </div>
@@ -184,21 +184,21 @@
       <div class="elem">
         <flock-checkbox
           v-model="arrayCheckbox"
-          label="Hello"
           trueValue="hello"
         >
+          Hello
         </flock-checkbox>
         <flock-checkbox
           v-model="arrayCheckbox"
-          label="Goodbye"
           trueValue="goodbye"
         >
+          Goodbye
         </flock-checkbox>
         <flock-checkbox
           v-model="arrayCheckbox"
-          label="Toodles"
           trueValue="toodles"
         >
+          Toodles
         </flock-checkbox>
         Chosen greetings: {{ arrayCheckbox }}
       </div>
