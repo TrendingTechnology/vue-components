@@ -16,6 +16,7 @@ export default {
 .link {
   cursor: pointer;
   color: $primary;
+  font-weight: 500;
   &:hover {
     text-rendering: none;
   }
