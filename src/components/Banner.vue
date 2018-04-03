@@ -1,5 +1,5 @@
 <template>
-  <div class="banner" :style="styles" :class="position">
+  <div class="banner" :style="styles" :class="`banner__${position}`">
     <slot></slot>
   </div>
 </template>
@@ -32,10 +32,10 @@ export default {
   position: fixed;
   z-index: 2;
 }
-.top {
+.banner__top {
   top: 0;
 }
-.bottom {
+.banner__bottom {
   bottom: 0;
 }
 </style>
