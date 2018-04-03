@@ -35,7 +35,11 @@ export default {
         opacity: 0.9,
         transform: 'translateX(-50%)',
         left: '50%',
+        whiteSpace: 'nowrap',
         textAlign: 'center',
+        maxWidth: '80%',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
       },
     };
   },
