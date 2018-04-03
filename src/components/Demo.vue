@@ -221,21 +221,24 @@
     </div>
     <div class="content">
       Show Toast:
-      <flock-button @click="showToast">
+      <flock-button @click="showToast = !showToast">
         Show Toast
       </flock-button>
       <flock-toast
+        v-if="showToast"
         position="bottom"
-      />
+        @toasthidden="showToast = false"
+      >
+        This is a toast!
+      </flock-toast>
     </div>
     <h2>Links</h2>
     This link will show the toast:
-    <flock-link @click="showToast">Show toast</flock-link>
+    <flock-link @click="showToast = !showToast">Show toast</flock-link>
   </div>
 </template>
 
 <script>
-import bus from '@/helpers/eventBus';
 import './index';
 
 export default {
@@ -243,6 +246,7 @@ export default {
   data: () => ({
     radio: 'No',
     position: 'top',
+    showToast: false,
     loading: false,
     disabledSelectedRadio: 'Disabled & Selected',
     checkbox: true,
@@ -287,9 +291,6 @@ export default {
       } else {
         this.position = 'top';
       }
-    },
-    showToast() {
-      bus.$emit('showtoast', 'This is a toast!');
     },
     showLoader() {
       this.loading = true;

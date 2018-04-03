@@ -1,17 +1,16 @@
 <template>
   <div
-    v-if="!!message"
+    v-if="show"
     class="toast">
     <Banner
       :styles="toastStyles"
       :position="position"
     >
-      {{ message }}
+      <slot></slot>
     </Banner>
   </div>
 </template>
 <script>
-import bus from '@/helpers/eventBus';
 import Banner from './Banner.vue';
 
 export default {
@@ -19,11 +18,15 @@ export default {
     Banner,
   },
   props: {
+    time: {
+      type: Number,
+      default: 5000,
+    },
     position: String,
   },
   data() {
     return {
-      message: false,
+      show: true,
       toastStyles: {
         bottom: '20px',
         opacity: 0.9,
@@ -33,22 +36,11 @@ export default {
       },
     };
   },
-  methods: {
-    showToast(message, time = 5000) {
-      if (message) {
-        this.message = message;
-        setTimeout(() => {
-          this.message = false;
-          this.$emit('onhidetoast');
-        }, time);
-      }
-    },
-  },
   created() {
-    bus.$on('showtoast', this.showToast);
+    setTimeout(() => {
+      this.show = false;
+      this.$emit('toasthidden');
+    }, this.time);
   },
 };
 </script>
-<style lang="scss" scoped>
-
-</style>
