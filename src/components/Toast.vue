@@ -22,7 +22,10 @@ export default {
       type: Number,
       default: 5000,
     },
-    position: String,
+    position: {
+      type: String,
+      default: 'bottom',
+    },
   },
   data() {
     return {
