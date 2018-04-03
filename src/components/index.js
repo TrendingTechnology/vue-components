@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import eventBus from '@/helpers/eventBus';
 import Button from './Button.vue';
 import Radio from './Radio.vue';
 import Checkbox from './Checkbox.vue';
@@ -14,8 +15,6 @@ Vue.component('flock-dropdown', Dropdown);
 Vue.component('flock-banner', Banner);
 Vue.component('flock-toast', Toast);
 Vue.component('flock-link', Link);
-
-const eventBus = new Vue();
 
 function triggerGlobalClick(e) {
   e.stopPropagation();

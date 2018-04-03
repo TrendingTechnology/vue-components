@@ -16,9 +16,8 @@ export default {
     styles: {
       type: Object,
       default: () => ({
-        backgroundColor: '#fcf6cd',
-        color: '#f6a623',
-        textAlign: 'left',
+        left: 0,
+        right: 0,
       }),
     },
   },
@@ -26,10 +25,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .banner {
-  position: fixed;
-  left: 0;
-  right: 0;
   padding: 12px;
+  background-color: #fcf6cd;
+  color: #f6a623;
+  text-align: left;
+  position: fixed;
+  z-index: 2;
 }
 .top {
   top: 0;
