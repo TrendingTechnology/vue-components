@@ -1,9 +1,13 @@
 <template>
-  <div class="banner" :style="styles" :class="`banner__${position}`">
+  <div class="banner" :style="bannerStyles" :class="`banner__${position}`">
     <slot></slot>
   </div>
 </template>
 <script>
+const defaultStyles = {
+  left: 0,
+  right: 0,
+};
 export default {
   props: {
     position: {
@@ -15,11 +19,16 @@ export default {
     },
     styles: {
       type: Object,
-      default: () => ({
-        left: 0,
-        right: 0,
-      }),
+      default: () => ({}),
     },
+  },
+  data() {
+    return {
+      bannerStyles: {
+        ...defaultStyles,
+        ...this.styles,
+      },
+    };
   },
 };
 </script>
