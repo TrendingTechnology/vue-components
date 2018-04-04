@@ -37,6 +37,7 @@ export default {
         left: '50%',
         whiteSpace: 'nowrap',
         textAlign: 'center',
+        borderRadius: '4px',
         maxWidth: '80%',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
