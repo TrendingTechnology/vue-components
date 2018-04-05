@@ -8,7 +8,7 @@
     <img
       v-if="loading"
       class="loader"
-      src="http://static.flock.co/flock/apps/loader-green.svg"
+      src="https://static.flock.co/flock/apps/loader-green.svg"
       height="32px"
       width="32px"
     />
