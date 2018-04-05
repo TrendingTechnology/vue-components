@@ -84,6 +84,8 @@ label {
         content: '';
         left: 3px;
         top: 17px;
+        top: 48%;
+        transform: translateY(-50%);
       }
       &:disabled {
         & ~ span:after {
@@ -106,6 +108,8 @@ label {
       width: $radioDiameter;
       height: $radioDiameter;
       border: solid 1px $border-color;
+      top: 48%;
+      transform: translateY(-50%);
     }
   }
 }

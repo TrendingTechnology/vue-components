@@ -153,7 +153,7 @@ $offTextPos: $checkedCirclePos - 10px;
         transition: 0.2s background cubic-bezier(0.22, 0.61, 0.36, 1);
       }
       &.switch {
-        padding-left: 3.5rem;
+        padding-left: 4rem;
         & > span {
           width: $switchWidth;
           height: $switchHeight;
@@ -163,8 +163,9 @@ $offTextPos: $checkedCirclePos - 10px;
           &:before {
             position: absolute;
             content: 'Off';
-            top: 1px;
-            left: $offTextPos;
+            top: 53%;
+            transform: translateY(-50%);
+            right: 6px;
             color: white;
             font-size: small;
             font-weight: 600;
@@ -191,6 +192,7 @@ $offTextPos: $checkedCirclePos - 10px;
   input[type="checkbox"]:checked + label {
     &.switch {
       & > span {
+        background: $primary;
         &:after {
           left: $checkedCirclePos;
           @extend .switch-circle;
@@ -201,20 +203,20 @@ $offTextPos: $checkedCirclePos - 10px;
         }
       }
     }
-    & > span {
+    &:not(.switch) > span {
       border: none;
       background: $primary;
       &:after {
         content: '';
         position: absolute;
-        top: 4px;
-        left: 3px;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
         width: 9px;
         height: 4px;
         border: 1px solid #ffffff;
         border-top: none;
         border-right: none;
-        transform: rotate(-45deg);
         background: transparent;
       }
     }
