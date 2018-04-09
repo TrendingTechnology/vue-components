@@ -108,8 +108,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 $switchWidth: 48px;
-$switchHeight: 18px;
-$circleDiameter: 14px;
+$switchHeight: 16px;
+$circleDiameter: 12px;
 $gap: 2px;
 $checkedCirclePos: $switchWidth - $circleDiameter - $gap;
 $offTextPos: $checkedCirclePos - 10px;
