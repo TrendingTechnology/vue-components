@@ -11,7 +11,7 @@
       />
       <label
         :style="labelStyles"
-        :class="{ 'styled': !!labelStyles, 'switch': type === 'switch' }"
+        :class="[type, {'styled': !!labelStyles }]"
         :for="defaultId"
       >
         <slot>{{ label }}</slot>
@@ -192,7 +192,6 @@ $offTextPos: $checkedCirclePos - 10px;
   input[type="checkbox"]:checked + label {
     &.switch {
       & > span {
-        background: $primary;
         &:after {
           left: $checkedCirclePos;
           @extend .switch-circle;
@@ -203,7 +202,10 @@ $offTextPos: $checkedCirclePos - 10px;
         }
       }
     }
-    &:not(.switch) > span {
+    &.checkbox > span:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    & > span {
       border: none;
       background: $primary;
       &:after {
@@ -211,7 +213,6 @@ $offTextPos: $checkedCirclePos - 10px;
         position: absolute;
         top: 40%;
         left: 50%;
-        transform: translate(-50%, -50%) rotate(-45deg);
         width: 9px;
         height: 4px;
         border: 1px solid #ffffff;
