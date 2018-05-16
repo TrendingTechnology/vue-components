@@ -8,14 +8,6 @@ import Banner from './Banner.vue';
 import Toast from './Toast.vue';
 import Link from './Link.vue';
 
-Vue.component('flock-button', Button);
-Vue.component('flock-radio', Radio);
-Vue.component('flock-checkbox', Checkbox);
-Vue.component('flock-dropdown', Dropdown);
-Vue.component('flock-banner', Banner);
-Vue.component('flock-toast', Toast);
-Vue.component('flock-link', Link);
-
 function triggerGlobalClick(e) {
   e.stopPropagation();
   eventBus.$emit('focusChanged', this);
@@ -31,4 +23,13 @@ Vue.mixin({
   },
 });
 
-export { Radio, Button, Checkbox, Dropdown, eventBus };
+export default {
+  Radio,
+  Button,
+  Checkbox,
+  Dropdown,
+  Banner,
+  Toast,
+  Link,
+  bus: eventBus,
+};
