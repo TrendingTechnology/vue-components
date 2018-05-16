@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import eventBus from '@/helpers/eventBus';
-import Button from './Button.vue';
-import Radio from './Radio.vue';
-import Checkbox from './Checkbox.vue';
-import Dropdown from './Dropdown.vue';
-import Banner from './Banner.vue';
-import Toast from './Toast.vue';
-import Link from './Link.vue';
+import FlockButton from './Button.vue';
+import FlockRadio from './Radio.vue';
+import FlockCheckbox from './Checkbox.vue';
+import FlockDropdown from './Dropdown.vue';
+import FlockBanner from './Banner.vue';
+import FlockToast from './Toast.vue';
+import FlockLink from './Link.vue';
 
 function triggerGlobalClick(e) {
   e.stopPropagation();
@@ -23,13 +23,19 @@ Vue.mixin({
   },
 });
 
-export default {
-  Radio,
-  Button,
-  Checkbox,
-  Dropdown,
-  Banner,
-  Toast,
-  Link,
-  bus: eventBus,
+const Components = {
+  FlockButton,
+  FlockRadio,
+  FlockCheckbox,
+  FlockDropdown,
+  FlockBanner,
+  FlockToast,
+  FlockLink,
 };
+
+Object.keys(Components).forEach((name) => {
+  Vue.component(name, Components[name]);
+});
+
+export default Components;
+export { eventBus };
