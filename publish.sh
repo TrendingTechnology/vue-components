@@ -1,1 +1,1 @@
-npm run build-bundle && npm publish --access public
+npm run build && npm publish --access public
