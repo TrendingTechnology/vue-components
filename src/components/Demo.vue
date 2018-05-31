@@ -239,10 +239,13 @@
 </template>
 
 <script>
-import './index';
+import Components from './index';
 
 export default {
   name: 'HelloWorld',
+  components: {
+    ...Components,
+  },
   data: () => ({
     radio: 'No',
     position: 'top',
