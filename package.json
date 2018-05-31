@@ -1,10 +1,9 @@
 {
   "name": "@flockos/vue-components",
-  "version": "0.1.46",
+  "version": "0.1.47",
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name flock ./src/components/index.js",
+    "build": "vue-cli-service build --target lib --name flock ./src/components/index.js",
     "build-wc": "vue-cli-service build --target wc --name flock 'src/components/*.vue'",
     "build-wc-async": "vue-cli-service build --target wc-async --name flock 'src/components/*.vue'",
     "test": "vue-cli-service test",
