@@ -1,6 +1,6 @@
 {
   "name": "@flockos/vue-components",
-  "version": "0.1.48",
+  "version": "0.1.49",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build --target lib --name flock ./src/components/index.js",
