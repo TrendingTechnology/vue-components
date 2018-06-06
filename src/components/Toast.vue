@@ -33,6 +33,7 @@ export default {
       toastStyles: {
         bottom: '20px',
         opacity: 0.9,
+        right: 'unset',
         transform: 'translateX(-50%)',
         left: '50%',
         whiteSpace: 'nowrap',
