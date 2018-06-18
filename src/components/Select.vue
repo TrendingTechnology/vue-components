@@ -4,7 +4,7 @@
     @click.stop="toggleOpen($event)"
     :style="{ width: width + 'px' }"
   >
-    {{ selectedValue }}
+    {{ selectedLabel }}
     <span/>
     <transition name="fade">
       <ul class="options" v-if="selectOpen">
@@ -14,7 +14,7 @@
           v-for="(option, index) in options"
           @click="onChange(option)"
         >
-          {{option.text}}
+          {{option.label}}
         </li>
       </ul>
     </transition>
@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       selectOpen: this.open,
-      selectedValue: this.value ? this.options.find(o => o.value === this.value).text : 'Select a value',
+      selectedLabel: this.value ? this.options.find(o => o.value === this.value).label : 'Select a value',
     };
   },
   model: {
@@ -57,7 +57,7 @@ export default {
     /*
       If options is an array, render the list using that array.
       else convert the options Object into an array by mapping over key values.
-      This can be done to avoid running a find on selectedValue computation.
+      This can be done to avoid running a find on selectedLabel computation.
     */
     eventBus.$on('focusChanged', this.closeOnFocusChange);
   },
@@ -70,8 +70,8 @@ export default {
         this.selectOpen = false;
       }
     },
-    onChange({ text, value }) {
-      this.selectedValue = text;
+    onChange({ label, value }) {
+      this.selectedLabel = label;
       this.$emit('change', value);
     },
     toggleOpen() {

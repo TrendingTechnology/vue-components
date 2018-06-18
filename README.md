@@ -68,7 +68,7 @@ Usage:
 #### Props:
 `open`: Initial state of the `FlockSelect` dropdown.
 
-`options`: Array of options. Every `option` needs to be in the `{ text: 'Some Visible Text', value: String|Object|Number }` format.
+`options`: Array of options. Every `option` needs to be in the `{ label: 'Some Visible Text', value: String|Object|Number }` format.
 
 `width`: The width of the `FlockSelect` component, if it needs to be constant.
 
