@@ -7,12 +7,11 @@
 ## List of components:
 All components are registered with the Vue global and are available for use. You do not need to re-register them.
 
-### Event Bus
+### **Event Bus**
 You can use the Flock Component's own event bus to pass data around. 
-#### List of events supported:
+#### Events:
 
-##### `focusChanged` 
-Parameters: `Element` which was clicked
+`focusChanged`: Whenever the document is clicked, this event is fired. The only parameter is `element` which was clicked.
 
 **Usage:**
 ```javascript
@@ -26,13 +25,13 @@ eventBus.$on('focusChanged', (element) => {
 ---
 More events will be supported as needed.
 
-##### Flock Button
+### **Flock Button**
 Usage:
 ```
 <flock-button type="primary">Submit</flock-button>
 ```
 
-##### Flock Radio
+### **Flock Radio**
 
 **Usage:**
 ```
@@ -53,3 +52,41 @@ Usage:
 >
 </flock-radio>
 ```
+
+### **Flock Select**
+**Usage:**
+```
+<flock-select
+    :width="150"
+    :options="listOptions"
+    v-model="selectedOption"
+/>
+```
+#### Events:
+`change`: Whenever the `FlockSelect` changes value, this event is fired with the new value as a parameter.
+
+#### Props:
+`open`: Initial state of the `FlockSelect` dropdown.
+
+`options`: Array of options. Every `option` needs to be in the `{ text: 'Some Visible Text', value: String|Object|Number }` format.
+
+`width`: The width of the `FlockSelect` component, if it needs to be constant.
+
+`v-model`: The value that will dynamically change just like normal models in Vue.js.
+
+
+### **Flock Modal**
+**Usage:**
+```
+<FlockModal @close="showModal = false" v-if="showModal" title="Settings">
+    List of devices!
+</FlockModal>
+```
+#### Events:
+`close`: Fired whenever the modal is closed. User has to handle the close themselves using a `v-if`.
+#### Props:
+`closeOnBgClick`: When set to `true`, the modal will automatically emit the `close` event whenever the background is clicked.
+
+`background`: This sets the backdrop of th modal. Default is none.
+
+`title`: The title of the `Modal`.

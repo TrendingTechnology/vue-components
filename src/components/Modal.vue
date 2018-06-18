@@ -1,5 +1,5 @@
 <template>
-  <GenericModal>
+  <GenericModal @close="close" :background="background" :closeOnBgClick="closeOnBgClick">
     <div class="header">
       <span class="title">{{title}}</span>
       <div class="close">
@@ -10,6 +10,11 @@
   </GenericModal>
 </template>
 <script>
+/* Usage:
+<FlockModal @close="showModal = false" v-if="showModal" title="Settings">
+  Content here.
+</FlockModal>
+ */
 import closeIcon from '@/assets/images/close.svg';
 import GenericModal from './GenericModal.vue';
 
@@ -24,6 +29,14 @@ export default {
   },
   props: {
     title: String,
+    closeOnBgClick: {
+      default: false,
+      type: Boolean,
+    },
+    background: {
+      type: String,
+      default: '',
+    },
   },
   methods: {
     close() {

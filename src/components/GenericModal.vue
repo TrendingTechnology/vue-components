@@ -1,6 +1,11 @@
 <template>
-  <div class="modal">
-    <div class="modal-content">
+  <div
+    class="modal"
+    @click="bgClicked"
+    :style="{ background }"
+    :class="{'stretch': (background || closeOnBgClick)}"
+  >
+    <div class="modal-content" @click.stop>
       <slot></slot>
     </div>
   </div>
@@ -12,27 +17,46 @@ export default {
       default: '',
       type: String,
     },
+    closeOnBgClick: {
+      default: false,
+      type: Boolean,
+    },
+  },
+  methods: {
+    bgClicked() {
+      if (this.closeOnBgClick) {
+        this.$emit('close');
+      }
+    },
   },
 };
 </script>
 <style lang="scss" scoped>
 .modal {
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
   text-align: left;
+  &.stretch {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: none;
+    .modal-content {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
   .modal-content {
     padding: 1.5em;
     @include borderRadius();
     @include boxShadow();
     background: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: $text-secondary;
   }
 }
