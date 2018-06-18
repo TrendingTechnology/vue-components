@@ -25,9 +25,16 @@ import { eventBus } from './index';
 
 export default {
   data() {
+    let selectedLabel = 'Select a value';
+    if (this.value) {
+      const option = this.options.find(o => o.value === this.value);
+      if (option) {
+        selectedLabel = option.label;
+      }
+    }
     return {
       selectOpen: this.open,
-      selectedLabel: this.value ? this.options.find(o => o.value === this.value).label : 'Select a value',
+      selectedLabel,
     };
   },
   model: {
