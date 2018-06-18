@@ -4,7 +4,7 @@
     @click.stop="toggleOpen($event)"
     :style="{ width: width + 'px' }"
   >
-    {{ selectedValue  }}
+    {{ selectedValue }}
     <span/>
     <transition name="fade">
       <ul class="options" v-if="selectOpen">
@@ -27,11 +27,11 @@ export default {
   data() {
     return {
       selectOpen: this.open,
-      selectedValue: 'Select a value',
+      selectedValue: this.value ? this.options.find(o => o.value === this.value).text : 'Select a value',
     };
   },
   model: {
-    prop: 'selected',
+    prop: 'value',
     event: 'change',
   },
   props: {
@@ -43,7 +43,7 @@ export default {
       type: Array,
       default: () => ([]),
     },
-    selected: {
+    value: {
       type: [String, Object, Number],
       default: 'Select a value',
     },

@@ -263,7 +263,7 @@ export default {
     radio: 'No',
     position: 'top',
     showToast: false,
-    selectedOption: '',
+    selectedOption: 'unsubscribe',
     selectedOption2: '',
     loading: false,
     disabledSelectedRadio: 'Disabled & Selected',
