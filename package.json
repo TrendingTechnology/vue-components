@@ -12,6 +12,7 @@
     "e2e:open": "vue-cli-service e2e:open"
   },
   "dependencies": {
+    "url-loader": "^1.0.1",
     "vue": "^2.5.13"
   },
   "files": [
@@ -32,7 +33,7 @@
     "@vue/test-utils": "^1.0.0-beta.10",
     "chai": "^4.1.2",
     "lint-staged": "^6.0.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.9.0",
     "sass-loader": "^6.0.6",
     "vue-template-compiler": "^2.5.13"
   },
