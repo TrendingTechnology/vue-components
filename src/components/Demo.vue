@@ -42,6 +42,19 @@
             </div>
           </flock-dropdown>
         </div>
+        <div class="left-align">
+          <h3>Dropdown List</h3>
+          <flock-select
+            :width="150"
+            :options="listOptions"
+            v-model="selectedOption"
+          />
+          <flock-select
+            :width="150"
+            :options="listOptions"
+            v-model="selectedOption2"
+          />
+        </div>
       </div>
     </div>
     <hr>
@@ -250,12 +263,21 @@ export default {
     radio: 'No',
     position: 'top',
     showToast: false,
+    selectedOption: '',
+    selectedOption2: '',
     loading: false,
     disabledSelectedRadio: 'Disabled & Selected',
     checkbox: true,
     disabledCheckbox: false,
     disabledSelectedCheckbox: true,
     dropdownOpen: false,
+    listOptions: [{
+      text: 'Subscribe',
+      value: 'subscribe',
+    }, {
+      text: 'Unsubscribe',
+      value: 'unsubscribe',
+    }],
     arrayCheckbox: ['toodles'],
     buttonTypes: [
       {

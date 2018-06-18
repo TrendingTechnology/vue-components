@@ -8,7 +8,7 @@
       <div class="text">
         <slot name="text"></slot>
       </div>
-      <span></span>
+      <span v-if="showDropdownBeak"></span>
     </div>
     <transition name="fade">
       <div
@@ -36,6 +36,10 @@ export default {
       type: String,
       default: '4px',
     },
+    showDropdownBeak: {
+      type: Boolean,
+      default: true,
+    },
     showBeak: {
       type: Boolean,
       default: true,
@@ -57,7 +61,6 @@ export default {
     },
   },
   created() {
-    this.dropdownOpen = this.open;
     eventBus.$on('focusChanged', this.closeOnFocusChange);
   },
   destroyed() {
@@ -72,11 +75,14 @@ export default {
     closeOnFocusChange(focusEl) {
       let isDropdownContent = false;
       if (focusEl.parentNode) {
-        isDropdownContent = focusEl.closest('.dropdown') !== this.$el;
+        // Figure out if the clicked element is the content of the dropdown in concern
+        isDropdownContent = focusEl.closest('.dropdown') === this.$el;
       } else if (this.dropdownOpen) {
+        // Close all other dropdowns
         this.toggleOpen();
       }
-      if (isDropdownContent && this.dropdownOpen) {
+      // If clicked element is not the dropdown content and dropdown is open then close it.
+      if (!isDropdownContent && this.dropdownOpen) {
         this.toggleOpen();
       }
     },
@@ -99,9 +105,6 @@ export default {
 .text {
   display: inline-block;
 }
-.show-beak > .header > span {
-  display: inline-block;
-}
 .content {
   @include border-radius();
   margin-bottom: 20px;
@@ -111,6 +114,8 @@ export default {
   background-color: #ffffff;
   border: solid 1px #eeeeee;
   position: absolute;
+  width: 100%;
+  left: 0;
   &.middle {
     left: 50%;
     transform: translateX(-50%);
@@ -159,7 +164,7 @@ export default {
   cursor: pointer;
   position: relative;
   span {
-    display: none;
+    display: inline-block;
     cursor: pointer;
     transition: top 200ms ease-in-out, transform 200ms ease-in-out;
     border: solid transparent;

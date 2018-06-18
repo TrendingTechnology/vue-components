@@ -4,6 +4,7 @@ import FlockButton from './Button.vue';
 import FlockRadio from './Radio.vue';
 import FlockCheckbox from './Checkbox.vue';
 import FlockDropdown from './Dropdown.vue';
+import FlockSelect from './Select.vue';
 import FlockBanner from './Banner.vue';
 import FlockToast from './Toast.vue';
 import FlockLink from './Link.vue';
@@ -28,6 +29,7 @@ const Components = {
   FlockRadio,
   FlockCheckbox,
   FlockDropdown,
+  FlockSelect,
   FlockBanner,
   FlockToast,
   FlockLink,
