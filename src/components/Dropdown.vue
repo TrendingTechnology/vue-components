@@ -106,11 +106,11 @@ export default {
   display: inline-block;
 }
 .content {
-  @include border-radius();
+  @include borderRadius();
+  @include boxShadow();
   margin-bottom: 20px;
   z-index: 1;
   margin-top: 12px;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   border: solid 1px #eeeeee;
   position: absolute;

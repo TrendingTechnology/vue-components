@@ -39,6 +39,7 @@ export default {
       type: Boolean,
       default: false,
     },
+    // Can make options an object so as to avoid loops later.
     options: {
       type: Array,
       default: () => ([]),
@@ -53,6 +54,11 @@ export default {
     },
   },
   created() {
+    /*
+      If options is an array, render the list using that array.
+      else convert the options Object into an array by mapping over key values.
+      This can be done to avoid running a find on selectedValue computation.
+    */
     eventBus.$on('focusChanged', this.closeOnFocusChange);
   },
   destroyed() {

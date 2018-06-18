@@ -9,6 +9,7 @@ $break-small: 480px;
 $break-large: 1024px;
 
 $text-color: #333333;
+$text-secondary: #4a4a4a;
 $dark-text-color: #454545;
 $light-text-color: #888888;
 $background-grey: #f2f2f2;
@@ -108,7 +109,7 @@ $error-color: #ff615b;
   background-position: center;
 }
 
-@mixin border-radius($radius: 4px) {
+@mixin borderRadius($radius: 4px) {
   border-radius: $radius;
 }
 
@@ -126,6 +127,10 @@ $error-color: #ff615b;
   background-image: $backgroundImage;
   background-repeat: no-repeat;
   background-size: $size;
+}
+
+@mixin boxShadow() {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 

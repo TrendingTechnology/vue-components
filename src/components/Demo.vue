@@ -248,6 +248,11 @@
     <h2>Links</h2>
     This link will show the toast:
     <flock-link @click="showToast = !showToast">Show toast</flock-link>
+    <h2>Modal</h2>
+    <flock-button @click="showModal = !showModal">Toggle Modal</flock-button>
+    <FlockModal @close="showModal = false" v-if="showModal" title="Settings">
+      List of devices!
+    </FlockModal>
   </div>
 </template>
 
@@ -271,6 +276,7 @@ export default {
     disabledCheckbox: false,
     disabledSelectedCheckbox: true,
     dropdownOpen: false,
+    showModal: false,
     listOptions: [{
       text: 'Subscribe',
       value: 'subscribe',

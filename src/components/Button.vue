@@ -49,7 +49,7 @@ export default {
   box-shadow: inset 0 -3px 0 0 $color;
 }
 .btn {
-  @include border-radius();
+  @include borderRadius();
   border: none;
   color: white;
   cursor: pointer;
