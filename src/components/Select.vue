@@ -4,7 +4,7 @@
     @click.stop="toggleOpen($event)"
     :style="{ width: width + 'px' }"
   >
-    {{ selectedLabel }}
+    <div class="label">{{ selectedLabel }}</div>
     <span/>
     <transition name="fade">
       <ul class="options" v-if="selectOpen">
@@ -103,6 +103,11 @@ export default {
   position: relative;
   cursor: pointer;
   box-sizing: border-box;
+  white-space: nowrap;
+  .label {
+    @include ellipsis();
+    max-width: 100%;
+  }
   span {
     display: inline-block;
     cursor: pointer;

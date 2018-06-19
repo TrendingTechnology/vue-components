@@ -269,7 +269,7 @@ export default {
     position: 'top',
     showToast: false,
     selectedOption: 'unsubscribe',
-    selectedOption2: '',
+    selectedOption2: 'subscribe',
     loading: false,
     disabledSelectedRadio: 'Disabled & Selected',
     checkbox: true,
@@ -278,10 +278,10 @@ export default {
     dropdownOpen: false,
     showModal: false,
     listOptions: [{
-      text: 'Subscribe',
+      label: 'Subscribe',
       value: 'subscribe',
     }, {
-      text: 'Unsubscribe',
+      label: 'Unsubscribe',
       value: 'unsubscribe',
     }],
     arrayCheckbox: ['toodles'],

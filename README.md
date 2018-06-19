@@ -30,7 +30,19 @@ Usage:
 ```
 <flock-button type="primary">Submit</flock-button>
 ```
+#### Events:
+`click`: Emits the `click` event when clicked.
 
+#### Props:
+`size`: Size of the button. Possible values: `full`, `half` & `auto`. Default is `auto`.
+
+`loading`: To show asynchronous operations, a loader circle shows up whenever this is set to `true`.
+
+`disabled`: Disables the button and applies an opacity to it.
+
+`type`: The style of the button. Possible values are `primary`, `secondary` & `destructive`. Default is primary.
+
+`invert`: Replaces the color & background with each other.
 ### **Flock Radio**
 
 **Usage:**
