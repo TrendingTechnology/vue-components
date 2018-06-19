@@ -45,12 +45,11 @@
         <div class="left-align">
           <h3>Dropdown List</h3>
           <flock-select
-            :width="150"
             :options="listOptions"
             v-model="selectedOption"
           />
           <flock-select
-            :width="150"
+            width="150px"
             :options="listOptions"
             v-model="selectedOption2"
           />

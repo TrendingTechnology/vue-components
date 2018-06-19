@@ -2,7 +2,7 @@
   <div
     class="flock-select"
     @click.stop="toggleOpen($event)"
-    :style="{ width: width + 'px' }"
+    :style="{ width: width ? width : 'unset' }"
   >
     <div class="label">{{ selectedLabel }}</div>
     <span/>
@@ -56,8 +56,8 @@ export default {
       default: 'Select a value',
     },
     width: {
-      type: Number,
-      default: 300,
+      type: String,
+      default: '',
     },
   },
   created() {
@@ -97,7 +97,7 @@ export default {
   padding: 10px;
   display: inline-block;
   text-align: left;
-  padding-right: 1.25em;
+  padding-right: 1.75em;
   border-radius: 2px;
   border: solid 1px $border-grey-light;
   position: relative;
