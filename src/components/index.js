@@ -9,6 +9,7 @@ import FlockBanner from './Banner.vue';
 import FlockModal from './Modal.vue';
 import FlockToast from './Toast.vue';
 import FlockLink from './Link.vue';
+import FlockLoader from './Loader.vue';
 
 function triggerGlobalClick(e) {
   e.stopPropagation();
@@ -35,6 +36,7 @@ const Components = {
   FlockModal,
   FlockToast,
   FlockLink,
+  FlockLoader,
 };
 
 export default Components;
