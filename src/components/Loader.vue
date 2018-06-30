@@ -2,7 +2,7 @@
   <div class="loader">
     <div class="loader-container" v-if="loading" :style="style">
       <img
-        src="https://static.flock.com/flock/apps/loader-green.svg"
+        :src="Loader"
         height="32px"
         width="32px"
       />
@@ -12,9 +12,12 @@
 </template>
 
 <script>
+import Loader from '@/assets/images/loader-green.svg';
+
 export default {
   data() {
     return {
+      Loader,
       style: {},
     };
   },

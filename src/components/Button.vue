@@ -8,14 +8,21 @@
     <img
       v-if="loading"
       class="loader"
-      src="https://static.flock.co/flock/apps/loader-green.svg"
+      :src="Loader"
       height="32px"
       width="32px"
     />
   </button>
 </template>
 <script>
+import Loader from '@/assets/images/loader-green.svg';
+
 export default {
+  data() {
+    return {
+      Loader,
+    };
+  },
   props: {
     size: {
       default: 'auto',
