@@ -91,12 +91,11 @@
         Full Button
       </flock-button>
     </div>
-    <div class="component-container">
-      <div class="buttons">
-        <flock-button size="auto" :small="true">
-          Button
-        </flock-button>
-      </div>
+    <div style="margin-top: 1em;">
+      Small Sized Button:
+      <flock-button size="auto" :small="true">
+        Click Me!
+      </flock-button>
     </div>
     <hr>
     <h2>
