@@ -2,7 +2,7 @@
   <button
     class="btn"
     :disabled="disabled"
-    :class="`${type} ${invert ? 'invert' : ''} ${size}`"
+    :class="[type, size, { invert, small }]"
     @click="$emit('click', $event)">
     <slot>Submit</slot>
     <img
@@ -24,6 +24,10 @@ export default {
     };
   },
   props: {
+    small: {
+      type: Boolean,
+      default: false,
+    },
     size: {
       default: 'auto',
       type: String,
@@ -78,6 +82,9 @@ export default {
   }
   &.full {
     width: 100%;
+  }
+  &.small {
+    padding: 0.5rem;
   }
   &.primary {
     &:active {

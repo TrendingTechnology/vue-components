@@ -91,6 +91,13 @@
         Full Button
       </flock-button>
     </div>
+    <div class="component-container">
+      <div class="buttons">
+        <flock-button size="auto" :small="true">
+          Button
+        </flock-button>
+      </div>
+    </div>
     <hr>
     <h2>
       Radio Input Components:
@@ -355,6 +362,7 @@ a {
   grid-template-columns: 33% 33% 33%;
 }
 .component-container {
+  margin-top: 1em;
   display: grid;
   grid-template-columns: 33% 33% 33%;
   grid-template-rows: 70px 70px;

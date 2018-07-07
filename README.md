@@ -34,7 +34,9 @@ Usage:
 `click`: Emits the `click` event when clicked.
 
 #### Props:
-`size`: Size of the button. Possible values: `full`, `half` & `auto`. Default is `auto`.
+`size`: Size of the button. Possible values: `full`, `half` & `auto`. Default is `auto`. 
+
+`small`: Reduce padding and makes a smaller styled button. Default is `false`.
 
 `loading`: To show asynchronous operations, a loader circle shows up whenever this is set to `true`.
 
