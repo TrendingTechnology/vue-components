@@ -2,7 +2,18 @@
 
 ## Installation and Usage:
 1. Just use `npm install --save @flockos/vue-components`
-2. Now you can include the script by using `require('@flockos/vue-components')`
+2. Now you can include the scripts by using following snippet:
+```
+import Components from '@flockos/vue-components';
+
+// Global registration in your main.js/App.vue file
+Object.entried(Components).forEach((name, component) => {
+    Vue.component(name, component);
+});
+```
+
+## Demo
+Check out the demo here: https://codesandbox.io/s/n9n7yy2lwp
 
 ## List of components:
 All components are registered with the Vue global and are available for use. You do not need to re-register them.
@@ -18,7 +29,7 @@ You can use the Flock Component's own event bus to pass data around.
 import { eventBus } from '@flockos/vue-components';
 
 eventBus.$on('focusChanged', (element) => {
-    // Do a few things if focus changes your element.
+    // Do a few things if focus changes.
 });
 ```
 
@@ -104,3 +115,20 @@ Usage:
 `background`: This sets the backdrop of th modal. Default is none.
 
 `title`: The title of the `Modal`.
+
+### **Flock Toast**
+**Usage:**
+```
+<FlockToast v-if="showToast" @toasthidden="doSomething">
+    Let's make a toast!
+</FlockToast>
+```
+#### Events:
+`toasthidden`: Gets triggered when the toast is hidden, automatically or manually.
+### Props:
+`time`: The time duration of the toast in `milliseconds`. Default duration is 5000ms.
+
+`position`: Position of the toast. Can be either `top` or `bottom`. Default is `bottom`.
+### Gotchas:
+You need to control the visibility of the toast by supplying a `v-if` conditional.
+TODO: Make `Toast` better so that a user can directly use it like: `eventBus.showToast(`Some Text`, 4000)`
