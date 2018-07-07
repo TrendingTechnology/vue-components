@@ -243,11 +243,12 @@
         Show Toast
       </flock-button>
       <flock-toast
+        :styles="toastStyles"
         v-if="showToast"
-        position="bottom"
+        position="top"
         @toasthidden="showToast = false"
       >
-        This is a toast!
+        This is a styled toast!
       </flock-toast>
     </div>
     <h2>Links</h2>
@@ -282,6 +283,10 @@ export default {
     disabledSelectedCheckbox: true,
     dropdownOpen: false,
     showModal: false,
+    toastStyles: {
+      backgroundColor: '#333333',
+      color: 'white',
+    },
     listOptions: [{
       label: 'Subscribe',
       value: 'subscribe',

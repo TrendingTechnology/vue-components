@@ -85,6 +85,7 @@ export default {
   }
   &.small {
     padding: 0.5rem;
+    font-weight: normal;
   }
   &.primary {
     &:active {

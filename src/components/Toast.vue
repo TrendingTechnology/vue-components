@@ -18,6 +18,10 @@ export default {
     Banner,
   },
   props: {
+    styles: {
+      type: Object,
+      default() { return {}; },
+    },
     time: {
       type: Number,
       default: 5000,
@@ -31,7 +35,6 @@ export default {
     return {
       show: true,
       toastStyles: {
-        bottom: '20px',
         opacity: 0.9,
         right: 'unset',
         transform: 'translateX(-50%)',
@@ -42,6 +45,7 @@ export default {
         maxWidth: '96%',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
+        ...this.styles,
       },
     };
   },

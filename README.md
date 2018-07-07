@@ -129,6 +129,8 @@ Usage:
 `time`: The time duration of the toast in `milliseconds`. Default duration is 5000ms.
 
 `position`: Position of the toast. Can be either `top` or `bottom`. Default is `bottom`.
+
+`styles`: A styles object to customize background and color of your toast.
 ### Gotchas:
 You need to control the visibility of the toast by supplying a `v-if` conditional.
 TODO: Make `Toast` better so that a user can directly use it like: `eventBus.showToast(`Some Text`, 4000)`
