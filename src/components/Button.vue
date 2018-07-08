@@ -2,7 +2,8 @@
   <button
     class="btn"
     :disabled="disabled"
-    :class="[type, size, { invert, small }]"
+    :style="styles"
+    :class="[type, size, shape, { invert, small }]"
     @click="$emit('click', $event)">
     <slot>Submit</slot>
     <img
@@ -24,6 +25,17 @@ export default {
     };
   },
   props: {
+    styles: {
+      type: Object,
+      default: () => ({}),
+    },
+    shape: {
+      type: String,
+      default: 'default',
+      validator(prop) {
+        return ['default', 'flat'].indexOf(prop) > -1;
+      },
+    },
     small: {
       type: Boolean,
       default: false,
@@ -91,7 +103,7 @@ export default {
     &:active {
       background: $primary-dark;
     }
-    &:hover {
+    &:not(.flat):hover {
       @include onHover($primary-dark);
     }
     &.invert {
@@ -108,7 +120,7 @@ export default {
       background: $secondary-dark;
       color: white;
     }
-    &:hover {
+    &:not(.flat):hover {
       @include onHover($secondary-dark);
     }
     &:disabled {
@@ -124,7 +136,7 @@ export default {
     &:active {
       background: $destructive-dark;
     }
-    &:hover {
+    &:not(.flat):hover {
       @include onHover($destructive-dark);
     }
     &.invert {
@@ -148,7 +160,7 @@ export default {
   &:disabled {
     opacity: 0.5;
     cursor: default;
-    &:hover {
+    &:not(.flat):hover {
       box-shadow: none;
     }
   }

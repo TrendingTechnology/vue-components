@@ -93,7 +93,7 @@
     </div>
     <div style="margin-top: 1em;">
       Small Sized Button:
-      <flock-button size="auto" :small="true">
+      <flock-button size="auto" shape="flat" :small="true">
         Click Me!
       </flock-button>
     </div>

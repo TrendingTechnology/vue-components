@@ -45,6 +45,10 @@ Usage:
 `click`: Emits the `click` event when clicked.
 
 #### Props:
+`styles`: Custom styles for your button.
+
+`shape`: Default is `default`. Options are `default` and `flat`. Flat means that there's no hover state.
+ 
 `size`: Size of the button. Possible values: `full`, `half` & `auto`. Default is `auto`. 
 
 `small`: Reduce padding and makes a smaller styled button. Default is `false`.
@@ -115,6 +119,19 @@ Usage:
 `background`: This sets the backdrop of th modal. Default is none.
 
 `title`: The title of the `Modal`.
+
+### **Flock Banner**
+**Usage:**
+```
+<FlockBanner>
+    This is a banner.
+</FlockBanner>
+```
+### Props:
+
+`position`: Position of the toast. Can be either `top` or `bottom`. Default is `bottom`.
+
+`styles`: A styles object to customize background, color etc. of your banner. By default, the banner will occupy 100% of the total width of the page.
 
 ### **Flock Toast**
 **Usage:**
